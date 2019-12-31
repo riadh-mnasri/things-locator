@@ -1,11 +1,28 @@
 <h2>My Things</h2>
-<ul class="things">
+<!--<ul class="things">
   <li *ngFor="let thing of things"
       [class.selected]="thing === selectedThing"
       (click)="onSelect(thing)">
-    <span class="badge">{{thing.id}}</span> <span class="container">{{thing.name}} </span><span class="container">{{thing.place}}</span>
+    <span class="badge">{{thing.id}}</span> <span class="col-md-1 bg-info">{{thing.name}} </span><span class="col-md-1 bg-info">{{thing.place}}</span>
   </li>
-</ul>
+</ul>-->
+
+<table mdbTable>
+  <thead>
+  <tr>
+    <th> id</th> <th> nom objet</th><th> nom emplacement</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr mdbTableCol *ngFor="let thing of things"
+      [class.selected]="thing === selectedThing"
+      (click)="onSelect(thing)">
+    <td><span class="badge">{{thing.id}}</span></td>
+    <td><span class="col-md-1 bg-info">{{thing.name}}</span></td>
+    <td><span class="col-md-1 bg-info">{{thing.place}}</span></td>
+  </tr>
+  </tbody>
+</table>
 
 <div *ngIf="selectedThing">
 
