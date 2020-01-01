@@ -1,0 +1,18 @@
+<h2>Thing Details</h2>
+
+<hr/>
+<div *ngIf="thing">
+    <div>
+        <label><b>Identifier: </b></label> {{thing.id}}
+    </div>
+    <div>
+        <label><b>Name: </b></label> {{thing.name}}
+    </div>
+    <div>
+        <label><b>Location: </b></label> {{thing.location}}
+    </div>
+</div>
+
+<br>
+<br>
+<button (click)="list()" class="btn btn-primary">Back to Things List</button><br>

@@ -27,8 +27,8 @@ class ThingController(val thingRepository: ThingRepository) {
         thingRepository.save(thingDTO.toEntity())
 
     @CrossOrigin
-    @GetMapping("/{id}", produces = [APPLICATION_JSON_UTF8_VALUE])
-    fun retrieveThing(@PathVariable thingId: String): ResponseEntity<Thing> {
+    @GetMapping("/things/{id}", produces = [APPLICATION_JSON_UTF8_VALUE])
+    fun retrieveThing(@PathVariable(value = "id") thingId: Long): ResponseEntity<Thing> {
         return thingRepository.findById(thingId).map { thing ->
             ResponseEntity.ok(thing)
         }.orElse(ResponseEntity.notFound().build())
@@ -36,7 +36,7 @@ class ThingController(val thingRepository: ThingRepository) {
 
     @CrossOrigin
     @DeleteMapping("/things/{id}", consumes = [APPLICATION_JSON_UTF8_VALUE])
-    fun deleteThing(@PathVariable id: String) {
+    fun deleteThing(@PathVariable id: Long) {
         thingRepository.deleteById(id)
     }
 }
