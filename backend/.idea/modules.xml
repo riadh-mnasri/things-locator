@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/things-locator-backend.iml" filepath="$PROJECT_DIR$/things-locator-backend.iml" />
+      <module fileurl="file://$PROJECT_DIR$/things-locator.iml" filepath="$PROJECT_DIR$/things-locator.iml" />
     </modules>
   </component>
 </project>

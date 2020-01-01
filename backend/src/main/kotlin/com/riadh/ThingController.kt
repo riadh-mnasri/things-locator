@@ -2,6 +2,7 @@ package com.riadh
 
 import org.springframework.http.MediaType.APPLICATION_JSON_UTF8_VALUE
 import org.springframework.http.ResponseEntity
+import org.springframework.web.bind.annotation.CrossOrigin
 import org.springframework.web.bind.annotation.DeleteMapping
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
@@ -16,21 +17,25 @@ import javax.validation.Valid
 @RequestMapping("/api")
 class ThingController(val thingRepository: ThingRepository) {
 
-    @GetMapping("/things")
+    @CrossOrigin
+    @GetMapping("/things", produces = [APPLICATION_JSON_UTF8_VALUE])
     fun getAllThings(): Iterable<Thing> = thingRepository.findAll()
 
-    @PostMapping("/things", produces = [APPLICATION_JSON_UTF8_VALUE])
-    fun createNewThing(@Valid @RequestBody thing: Thing): Thing =
-        thingRepository.save(thing)
+    @CrossOrigin
+    @PostMapping("/things", consumes = [APPLICATION_JSON_UTF8_VALUE] , produces = [APPLICATION_JSON_UTF8_VALUE])
+    fun createNewThing(@Valid @RequestBody thingDTO: ThingDTO): Thing =
+        thingRepository.save(thingDTO.toEntity())
 
-    @GetMapping("/{id}")
+    @CrossOrigin
+    @GetMapping("/{id}", produces = [APPLICATION_JSON_UTF8_VALUE])
     fun retrieveThing(@PathVariable thingId: String): ResponseEntity<Thing> {
         return thingRepository.findById(thingId).map { thing ->
             ResponseEntity.ok(thing)
         }.orElse(ResponseEntity.notFound().build())
     }
 
-    @DeleteMapping("/things/{id}")
+    @CrossOrigin
+    @DeleteMapping("/things/{id}", consumes = [APPLICATION_JSON_UTF8_VALUE])
     fun deleteThing(@PathVariable id: String) {
         thingRepository.deleteById(id)
     }

@@ -6,16 +6,16 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="things-locator-backend" />
+        <module name="things-locator" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="1.8">
-      <module name="things-locator-backend" target="1.8" />
+      <module name="things-locator" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="things-locator-backend" options="-parameters" />
+      <module name="things-locator" options="-parameters" />
     </option>
   </component>
 </project>
