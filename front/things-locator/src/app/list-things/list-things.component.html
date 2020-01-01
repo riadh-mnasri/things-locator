@@ -1,37 +1,28 @@
-<h2>My Things</h2>
-<!--<ul class="things">
-  <li *ngFor="let thing of things"
-      [class.selected]="thing === selectedThing"
-      (click)="onSelect(thing)">
-    <span class="badge">{{thing.id}}</span> <span class="col-md-1 bg-info">{{thing.name}} </span><span class="col-md-1 bg-info">{{thing.place}}</span>
-  </li>
-</ul>-->
-
-<table mdbTable>
-  <thead>
-  <tr>
-    <th> id</th> <th> nom objet</th><th> nom emplacement</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr mdbTableCol *ngFor="let thing of things"
-      [class.selected]="thing === selectedThing"
-      (click)="onSelect(thing)">
-    <td><span class="badge">{{thing.id}}</span></td>
-    <td><span class="col-md-1 bg-info">{{thing.name}}</span></td>
-    <td><span class="col-md-1 bg-info">{{thing.place}}</span></td>
-  </tr>
-  </tbody>
-</table>
-
-<div *ngIf="selectedThing">
-
-  <h2>{{selectedThing.name | uppercase}} Details</h2>
-  <div><span>id: </span>{{selectedThing.id}}</div>
-  <div>
-    <label>name:
-      <input [(ngModel)]="selectedThing.name" placeholder="name"/>
-    </label>
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h2>Things List</h2>
   </div>
-
+  <div class="panel-body">
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Place</th>
+        <th>Actions</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let thing of things">
+        <td>{{thing.id}}</td>
+        <td>{{thing.name}}</td>
+        <td>{{thing.place}}</td>
+        <td><button (click)="deleteThing(thing.id)" class="btn btn-danger">Delete</button>
+          <button (click)="updateThing(thing.id)" class="btn btn-info" style="margin-left: 10px">Update</button>
+          <button (click)="thingDetails(thing.id)" class="btn btn-info" style="margin-left: 10px">Details</button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
