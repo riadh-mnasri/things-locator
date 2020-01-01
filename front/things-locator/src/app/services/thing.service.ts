@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class ThingService {
 
-  private baseUrl = 'http://localhost:8080/springboot-crud-rest/api/v1/things';
+  private baseUrl = 'http://localhost:9595/api/things';
 
   constructor(private http: HttpClient) { }
 
