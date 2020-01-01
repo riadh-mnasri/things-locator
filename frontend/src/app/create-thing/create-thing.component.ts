@@ -28,12 +28,12 @@ export class CreateThingComponent implements OnInit {
     this.thingService.createThing(this.thing)
       .subscribe(data => console.log(data), error => console.log(error));
     this.thing = new Thing();
-    this.gotoList();
   }
 
   onSubmit() {
     this.submitted = true;
     this.save();
+    this.gotoList();
   }
 
   gotoList() {

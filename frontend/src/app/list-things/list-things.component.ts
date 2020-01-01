@@ -27,11 +27,6 @@ export class ListThingsComponent implements OnInit {
         this.listThings();
     }
 
-
-    onSelect(thing: Thing): void {
-        this.selectedThing = thing;
-    }
-
     gotoList() {
         this.router.navigate(['/things']);
     }
