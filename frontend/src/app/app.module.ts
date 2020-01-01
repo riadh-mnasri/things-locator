@@ -8,13 +8,15 @@ import {ListThingsComponent} from './list-things/list-things.component';
 import {FormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import {ThingDetailsComponent} from './thing-details/thing-details.components';
+import {UpdateThingComponent} from './update-thing/update-thing.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CreateThingComponent,
     ListThingsComponent,
-    ThingDetailsComponent
+    ThingDetailsComponent,
+    UpdateThingComponent
   ],
   imports: [
     BrowserModule,

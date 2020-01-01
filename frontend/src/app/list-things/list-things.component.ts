@@ -44,6 +44,7 @@ export class ListThingsComponent implements OnInit {
                     this.listThings();
                 },
                 error => console.log(error));
+        this.gotoList();
     }
 
     thingDetails(id: number) {
