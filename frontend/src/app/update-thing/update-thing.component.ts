@@ -32,7 +32,6 @@ export class UpdateThingComponent implements OnInit {
     updateThing() {
         this.thingService.updateThing(this.id, this.thing)
             .subscribe(data => console.log(data), error => console.log(error));
-        this.thing = new Thing();
         this.gotoList();
     }
 
