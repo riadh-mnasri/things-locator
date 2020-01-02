@@ -11,7 +11,6 @@ import {Router} from '@angular/router';
 export class ListThingsComponent implements OnInit {
 
     things = [];
-    selectedThing: Thing;
 
     constructor(private thingService: ThingService,
                 private router: Router) {
