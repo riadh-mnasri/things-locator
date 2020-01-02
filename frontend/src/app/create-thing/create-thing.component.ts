@@ -19,15 +19,9 @@ export class CreateThingComponent implements OnInit {
   ngOnInit() {
   }
 
-  newThing(): void {
-    this.submitted = false;
-    this.thing = new Thing();
-  }
-
   save(){
     this.thingService.createThing(this.thing)
       .subscribe(data => console.log(data), error => console.log(error));
-    this.thing = new Thing();
   }
 
   onSubmit() {
