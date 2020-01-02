@@ -22,6 +22,22 @@ class ThingController(val thingRepository: ThingRepository) {
     @GetMapping("/things", produces = [APPLICATION_JSON_UTF8_VALUE])
     fun getAllThings(): Iterable<Thing> = thingRepository.findAll()
 
+
+    @CrossOrigin
+    @GetMapping("/things/search/{name}", produces = [APPLICATION_JSON_UTF8_VALUE])
+    fun findThingsByName(@PathVariable(value = "name") thingName: String): Iterable<Thing> {
+        return thingRepository.findByName(thingName)
+    }
+
+
+    @CrossOrigin
+    @GetMapping("/things/{name}/location/{location}", produces = [APPLICATION_JSON_UTF8_VALUE])
+    fun findThingsByNameAndLocation(@PathVariable(value = "name") thingName: String,
+                                    @PathVariable(value = "location") thingLocation: String): Iterable<Thing> {
+        return thingRepository.findByNameAndLocation(thingName, thingLocation)
+    }
+
+
     @CrossOrigin
     @PostMapping("/things", consumes = [APPLICATION_JSON_UTF8_VALUE], produces = [APPLICATION_JSON_UTF8_VALUE])
     fun createNewThing(@Valid @RequestBody thingDTO: ThingDTO): Thing =

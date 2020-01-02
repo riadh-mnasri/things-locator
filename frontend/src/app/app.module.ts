@@ -9,6 +9,7 @@ import {FormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import {ThingDetailsComponent} from './thing-details/thing-details.components';
 import {UpdateThingComponent} from './update-thing/update-thing.component';
+import {SearchThingComponent} from './search-thing/search-thing.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import {UpdateThingComponent} from './update-thing/update-thing.component';
     CreateThingComponent,
     ListThingsComponent,
     ThingDetailsComponent,
-    UpdateThingComponent
+    UpdateThingComponent,
+    SearchThingComponent
   ],
   imports: [
     BrowserModule,
